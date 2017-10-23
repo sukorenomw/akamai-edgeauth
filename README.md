@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/sukorenomw/akamai-edgeauth.svg?branch=master)](https://travis-ci.org/sukorenomw/akamai-edgeauth)
-
+[![Gem Version](https://badge.fury.io/rb/akamai-edge_auth.svg)](https://badge.fury.io/rb/akamai-edge_auth)
 
 # EdgeAuth (Akamai Authorization Token)
 

@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "akamai/edge_auth/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "akamai-edge_auth"
+  spec.name          = "edge_auth"
   spec.version       = Akamai::EdgeAuth::VERSION
   spec.authors       = ["Sukoreno Mukti"]
   spec.email         = ["sukorenomw@gmail.com"]
