@@ -1,6 +1,7 @@
 # EdgeAuth (Akamai Authorization Token)
 
 this gem is authorization token generator for Akamai, you can configure your property at [https://control.akamai.com]
+inspired by [Akamai-AuthToken-Ruby](https://github.com/AstinCHOI/Akamai-AuthToken-Ruby)
 
 ## Installation
 
