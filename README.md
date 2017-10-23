@@ -31,7 +31,7 @@ token = edge_auth.generate_token(start_time: "now", window_seconds: 30, acl: "/p
 Your token should look like this by very default options :
 
 ```
-hdnts=st=1508777863~exp=1508777893~acl=/i/*~hmac=fded4c1133a50942a36cc16a9a94d68e8573d10d144d03860a7c3a3734d13dff
+hdnts=st=1508777863~exp=1508777893~acl=/path/whatever~hmac=fded4c1133a50942a36cc16a9a94d68e8573d10d144d03860a7c3a3734d13dff
 ```
 
 ### Initialize
