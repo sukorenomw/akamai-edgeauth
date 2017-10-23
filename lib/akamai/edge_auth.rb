@@ -23,7 +23,8 @@ module Akamai
     end
 
     def generate_token(start_time: "now", end_time: nil, window_seconds: nil,
-                       acl: nil, url: nil)
+                       acl: nil, url: nil, ip: nil,
+                       session_id: nil, payload: nil)
       raise EdgeAuthError, "no end_time or window_seconds is provided" if end_time.nil? && window_seconds.nil?
       raise EdgeAuthError, "you must provide an ACL or a URL." if (acl.nil? && url.nil?) || (acl && url)
 
@@ -59,13 +60,26 @@ module Akamai
 
       new_token = Array.new
 
+      if ip
+        new_token.push "ip=#{ip}"
+      end
+
       new_token.push "st=#{start_time}"
       new_token.push "exp=#{end_time}"
 
       new_token.push "acl=#{acl}" unless acl.nil?
-      new_token.push "url=#{url}" unless url.nil?
+
+      if session_id
+        new_token.push "id=#{session_id}"
+      end
+
+      if payload
+        new_token.push "data=#{payload}"
+      end
 
       hash_code = new_token.clone
+
+      new_token.push "url=#{url}" unless url.nil?
 
       bin_key = Array(key.gsub(/\s/,'')).pack("H*")
       digest = OpenSSL::Digest.new(algorithm)
