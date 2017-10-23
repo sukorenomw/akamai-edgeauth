@@ -88,13 +88,15 @@ RSpec.describe Akamai::EdgeAuth do
 
       context "with window_second" do
         let(:token) { edge_auth.generate_token(window_seconds: 30, acl: "acl") }
+        let(:mocked_start_time) { Time.now.getgm.to_i }
+        let(:mocked_end_time) { mocked_start_time + 30 }
 
         it "will set to now (current timestamp)" do
-          expect(token).to match /st=1507568400/
+          expect(token).to match /st=#{mocked_start_time}/
         end
 
         it "will set expiration time from start_time + window_seconds" do
-          expect(token).to match /exp=1507568430/
+          expect(token).to match /exp=#{mocked_end_time}/
         end
       end
     end
