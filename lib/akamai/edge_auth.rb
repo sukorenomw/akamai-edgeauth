@@ -1,4 +1,5 @@
 require "akamai/edge_auth/version"
+require "openssl"
 
 module Akamai
   class EdgeAuth
@@ -64,8 +65,20 @@ module Akamai
       new_token.push "acl=#{acl}" unless acl.nil?
       new_token.push "url=#{url}" unless url.nil?
 
-      "#{@token_name}=#{new_token.join(@field_delimiter)}"
+      hash_code = new_token.clone
 
+      bin_key = Array(key.gsub(/\s/,'')).pack("H*")
+      digest = OpenSSL::Digest.new(algorithm)
+      token_hmac = OpenSSL::HMAC.new(bin_key, digest)
+      token_hmac.update(hash_code.join(field_delimiter))
+
+      new_token.push "hmac=#{token_hmac}"
+
+      "#{@token_name}=#{new_token.join(@field_delimiter)}"
+    end
+
+    def escape_early(string)
+      CGI::escape(string).gsub(/(%..)/) {$1.downcase}
     end
   end
 

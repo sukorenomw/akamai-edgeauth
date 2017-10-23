@@ -49,6 +49,14 @@ RSpec.describe Akamai::EdgeAuth do
     end
   end
 
+  describe "#escape_early" do
+    it "will escape token string" do
+      edge_auth = Akamai::EdgeAuth.new(key: "somekeyhere")
+
+      expect(edge_auth.escape_early("&hdnts=asdf")).to eq "%26hdnts%3dasdf"
+    end
+  end
+
   describe "#generate_token" do
     let(:edge_auth){ Akamai::EdgeAuth.new(key: "somekeyhere") }
 
