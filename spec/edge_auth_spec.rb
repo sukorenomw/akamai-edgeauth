@@ -146,5 +146,37 @@ RSpec.describe Akamai::EdgeAuth do
         }.to raise_error(Akamai::EdgeAuthError, "token will have already expired.")
       end
     end
+
+    context "when ip is provided" do
+      let(:token) { edge_auth.generate_token(window_seconds: 30, acl: "acl", ip: "127.0.0.1") }
+
+      it "will append ip in front of start_time" do
+        expect(token).to match /ip=127.0.0.1~st/
+      end
+    end
+
+    context "when session_id is provided" do
+      let(:token) { edge_auth.generate_token(window_seconds: 30, acl: "acl", session_id: "session_id") }
+
+      it "will append session_id" do
+        expect(token).to match /id=session_id~hmac/
+      end
+    end
+
+    context "when payload is provided" do
+      let(:token) { edge_auth.generate_token(window_seconds: 30, acl: "acl", payload: "payload") }
+
+      it "will append payload" do
+        expect(token).to match /data=payload~hmac/
+      end
+    end
+
+    context "when both payload and session_id is provided" do
+      let(:token) { edge_auth.generate_token(window_seconds: 30, acl: "acl", payload: "payload", session_id: "session_id") }
+
+      it "will append payload after session_id" do
+        expect(token).to match /id=session_id~data=payload~hmac/
+      end
+    end
   end
 end
