@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/sukorenomw/akamai-edgeauth.svg?branch=master)](https://travis-ci.org/sukorenomw/akamai-edgeauth)
+
+
 # EdgeAuth (Akamai Authorization Token)
 
 this gem is authorization token generator for Akamai, you can configure your property at [https://control.akamai.com]
