@@ -11,7 +11,7 @@ inspired by [Akamai-AuthToken-Ruby](https://github.com/AstinCHOI/Akamai-AuthToke
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'edge_auth'
+gem 'akamai-edge_auth'
 ```
 
 And then execute:
@@ -20,7 +20,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install edge_auth
+    $ gem install akamai-edge_auth
 
 ## Usage
 
