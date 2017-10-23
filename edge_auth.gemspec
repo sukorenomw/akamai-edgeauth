@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.summary       = %q{Akamai EdgeAuth token generator}
   spec.description   = %q{Akamai EdgeAuth token generator for TokenAuth setting in Media Live Streaming Packaging or Segmented Media Protection}
   spec.homepage      = "https://github.com/sukorenomw/akamai_edge_auth"
-  spec.license       = "MIT"
+  spec.license       = "Apache-2.0"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
