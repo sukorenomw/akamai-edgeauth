@@ -3,8 +3,7 @@
 
 # EdgeAuth (Akamai Authorization Token)
 
-this gem is authorization token generator for Akamai, you can configure your property at [https://control.akamai.com]
-inspired by [Akamai-AuthToken-Ruby](https://github.com/AstinCHOI/Akamai-AuthToken-Ruby)
+this gem is authorization token generator for Akamai, based on original code by akamai developer in https://control.akamai.com/dl/customers/SPE/EdgeAuth-latest.zip, just make an easy way to integrate to your ruby application. you can configure your property at https://control.akamai.com
 
 ## Installation
 
@@ -79,6 +78,8 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 5. Create a new Pull Request
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/sukorenomw/akamai-edgeauth. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+
+inspired by [Akamai-AuthToken-Ruby](https://github.com/AstinCHOI/Akamai-AuthToken-Ruby)
 
 ## License
 
